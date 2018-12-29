@@ -1,0 +1,151 @@
+{include file="public/head"}
+	<style>
+		/*卡片区域*/
+		body{background: white}
+		.m-tabbar{position: fixed;width: 100%;bottom: 0}
+		select{border: 1px solid rgb(169, 169, 169);margin-left: 0.2rem;width: 4rem;height: 0.5rem;}
+		textarea{margin-top: 1px;padding: 0.1rem;width: 4rem;vertical-align: top;margin-left: 0.2rem;}
+		button{display: block;
+			margin: auto;
+			border: none;
+			border-radius: 0.2rem;
+			padding: 0.1rem 1rem;
+			background: #d35323;
+			color: white;
+		}
+		.button{padding: 0.2rem 0}
+		/* input:not(){width: 4rem} */
+		.jianjie{padding: 0.1rem}
+		.jianjie >p:nth-child(1){font-size: 0.4rem;color: tomato;padding: 0.1rem 0;    border-top: 1px solid #ccc;}
+		.clajianjie-content{display: flex;border-bottom: 1px solid #ccc;}
+		.jianjieRight{width: 35%}
+		.jianjieRight img{width: 100%}
+		.jianjieLeft{font-size: 0.27rem;}
+		.jianjieLeft p{ margin-bottom: 0.1rem;}
+		.table{border: 1px solid #e6e6e6}
+		.tableItem-left span:nth-child(1){color: red}
+		.tableItem {display: flex;align-items: inherit;border-bottom: 1px solid #c5c3c2}
+		.tableItem-right{width: 70%}
+		.tableItem-right input{height: 0.5rem;border: 1px solid #e6e6e6;margin-left: 0.2rem;width: 4rem;}
+		.tableItem-left{background: #f0efee;width: 24%;    padding: 0.1rem 0;    font-size: 0.3rem;text-align: center}
+		.biaoti1{background: #c14f25;color:#fff;text-align: center;padding: 0.1rem 0;font-size: 0.4rem;}
+		.radio input{width: 0.2rem}
+	</style>
+	<!--头部导航-->
+{include file="public/headlogo"}
+	<div class="path">
+    	<p>当前位置：首页&#10132培训报名</p>
+    </div>
+	<div class="jianjie">
+		<p>简介</p>
+		<div class="clajianjie-content" >
+			<div class="jianjieLeft">
+				{$date.content}
+			</div>
+			<div class="jianjieRight">
+
+				<img src="{$date.thumb|geturl}" alt="">
+			</div>
+		</div>
+		<p class=" biaoti1">
+			培训报名表
+		</p>
+		<div class="table">
+			<form action="" method="post">
+				<div class="tableItem">
+					<div class="tableItem-left">
+						<span>*</span><span>本人姓名</span>
+					</div>
+					<div class="tableItem-right">
+						<input type="text" name="name">
+					</div>
+				</div>
+				<div class="tableItem">
+					<div class="tableItem-left">
+						<span>*</span><span>本人性别</span>
+					</div>
+					<div class="tableItem-right radio">
+						<label for=""><input type="radio" name="sex" value="1">男</label>
+						<label for=""><input type="radio" name="sex" value="0">女</label>
+					</div>
+
+				</div>
+				<div class="tableItem">
+					<div class="tableItem-left">
+						<span>*</span><span>单位名称</span>
+					</div>
+					<div class="tableItem-right">
+						<input type="text" name="danwei">
+					</div>
+				</div>
+				<div class="tableItem">
+						<div class="tableItem-left">
+							<span>*</span><span>联系地址</span>
+						</div>
+						<div class="tableItem-right">
+							<input type="text" name="dizhi">
+						</div>
+					</div>
+				<div class="tableItem">
+					<div class="tableItem-left">
+						<span>*</span><span>邮政编码</span>
+					</div>
+					<div class="tableItem-right">
+						<input type="text" name="code">
+					</div>
+				</div>
+				<div class="tableItem">
+					<div class="tableItem-left">
+						<span>*</span><span>联系电话</span>
+					</div>
+					<div class="tableItem-right">
+						<input type="text" name="tel">
+					</div>
+				</div>
+				<div class="tableItem">
+					<div class="tableItem-left">
+						<span>*</span><span>QQ</span>
+					</div>
+					<div class="tableItem-right">
+						<input type="text" name="qq">
+					</div>
+				</div>
+				<div class="tableItem">
+					<div class="tableItem-left">
+						<span>*</span><span>电子邮件</span>
+					</div>
+					<div class="tableItem-right">
+						<input type="text" name="email">
+					</div>
+				</div>
+				<div class="tableItem">
+					<div class="tableItem-left">
+						<span>*</span><span>培训项目</span>
+					</div>
+					<div class="tableItem-right">
+						<select name="article_id" id="">
+							<option value="{$date.id}">{$date.title}</option>
+						</select>
+					</div>
+				</div>
+				<div class="tableItem textarea">
+					<div class="tableItem-left">
+						<span>*</span><span>培训项目</span>
+					</div>
+					<div class="tableItem-right">
+						<textarea name="description" cols="30" rows="10"></textarea>
+						<p>(培训请填写预计参加人数，如果有任何特殊要求，请在此注明)</p>
+					</div>
+				</div>
+				<div class="button">
+					<button type="reset">重新填写</button>
+					<br>
+					<button type="submit">现在报名</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+   
+	<!-- 底部 -->
+{include file="public/foot"}

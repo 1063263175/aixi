@@ -1,0 +1,105 @@
+{include file="public/head"}
+	<style type="text/css">
+		body{
+			background: white;
+		}
+		.box{
+			padding: 10px;
+		}
+		.boxContent img{
+			width: 3.43rem;
+			height: 2.87rem;
+		}
+		.boxContent{
+			margin: auto;
+			padding-bottom:10px ;
+			width: 90%;
+			box-shadow:0px 0px 5px #ccc;
+			padding: 5%;
+			overflow: hidden;
+			margin-top: 1rem;
+		}
+		.box1{
+			display: flex;
+			justify-content: space-between;
+		}
+		.box1 .boxContent{
+			width: 48%;
+
+		}
+		.zhuce{
+			width: 1.34rem !important;
+			height: 1.74rem !important;
+		}
+		.xiugai{
+			width: 1.95rem !important;
+			height: 1.74rem !important;
+		}
+		.biaodan{
+			display: flex;
+
+			align-items: center;
+			width: 100%;
+			border-bottom: 1px solid #e6e6e6;
+			margin-top: 0.5rem;
+			padding-bottom: 10px;
+		}
+		.biaodan input{
+			border: none;
+			height: 20px;
+			font-size:16px ;
+			width: 70%;
+			padding-left: 10px;
+		}
+		.biaodan img{width: 0.45rem;height: 0.55rem;}
+		.biaodan span{
+			font-size: 16px;
+		}
+
+		.boxContent >p{
+			font-size: 0.4rem;
+			text-align: center;
+			color: #de541e;
+			padding: 0.5rem;
+		}
+		.tip{display:inline-block;width: 48%;text-align: left;}
+		.massage{color: #de541e;display: none;}
+		button{display:block;width: 80%;height:32px ;color: white;border-radius: 20px;
+			background-color: #de541e;border: none;margin: auto;margin-top: 10px;margin-top: 10px;
+		}
+	</style>
+	<!--头部导航-->
+{include file="public/headlogo"}
+	<div class="box">
+		<div class="boxContent">
+			<form id="signupForm" method="post" action="">
+				<div class="biaodan">	
+					<img src="__IMG__/touxiang.png"/>
+					<input type="" name="username" id="phone" value=""/>
+				</div>
+					<p class="massage shoujihao">手机号格式不正确</p>
+
+				<div class="biaodan">
+					<img src="__IMG__/suo.png"/>
+					<input type="password" name="" id="password" value=""/>				
+				</div>
+					<span class="tip massage onepass" >密码格式不正确</span>				
+					<span class="tip">(字母加数字不少于6位)</span>
+				<div class="biaodan">	
+					<img src="__IMG__/suo.png"/>
+					
+					<input type="" name="password" id="password2" value="" placeholder="再次输入密码"/>
+				</div>
+					<p class="massage twopass">密码不一致</p>
+				<div class="biaodan">	
+					<img src="__IMG__/anquan.png"/>
+					<input type="" name="code" id="code" value="" placeholder="请输入验证码"/>
+					<a href="">获取验证码</a>
+				</div>
+					<p class="massage yanzhengma">验证码不正确</p>					
+				<button type="submit">注册</button>
+			</form>
+		</div>
+	</div>
+<!--侧边栏-->
+{include file="public/noNavFoot"}

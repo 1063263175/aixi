@@ -1,0 +1,45 @@
+{include file="public/head"}
+
+<style type="text/css">
+	html{font-size: 50px;}
+	body{background: white;}
+	iframe{
+		width: 100%;
+		height: 100%;
+	}
+
+</style>
+	<!-- <div class="zhezhao"></div> -->
+	<!--头部导航-->
+
+<iframe src="http://api.map.baidu.com/geocoder?location={$webconfig.zuobiao}&coord_type=gcj02&output=html&src=webapp.baidu.openAPIdemo
+	" frameborder="0"></iframe>
+<!-- 经纬度在location参数里修改 -->
+<!--侧边栏-->
+{include file="public/cebian"}
+
+<!-- 引入jQuery 2.0+ -->
+<script src="__JS__/jquery-3.2.1.min.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="__JS__/ydui.js"></script>
+<script>
+//	遮罩的高度
+	var $height=document.body.scrollHeight 
+	$('.zhezhao').height($height)
+   $('.fadein').click(function(){
+		event.stopPropagation();	
+		$('.zhezhao').show();
+   		$('.cebians').animate({left:'0px'});
+   })
+   $('body').click(function(){
+		$('.zhezhao').hide();
+   		$('.cebians').animate({left:'-3.5rem'});
+   })  
+// 阻止冒泡
+    $('.cebians').click(function(){
+		event.stopPropagation();	
+	}) 
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{include file="public/head"}
+	<style type="text/css">
+		body{background: white;}
+		.main{padding: 15px;}
+		.item{display: flex;box-shadow: 0px 0px 20px #C9C9C9;padding: 10px;margin-bottom: 0.25rem;border-radius: 0.2rem;}
+		.itemLeft{text-align: center;}
+		.itemLeft p{margin-top: 7px;font-size: 0.25rem;}
+		.itemLeft img{width: 2rem;height: 2rem;}
+		.itemRight{margin-left: 10px;font-size: 0.27rem;}
+	</style>
+	<!--头部导航-->
+{include file="public/headlogo"}
+    <div class="path">
+    	<p>当前位置：首页&#10132传奇人生&#10132人物介绍</p>
+    </div>
+   	<div class="main">
+
+   		<div class="item">
+   			<div class="itemLeft">
+   				<img src="{$date.thumb|geturl}"/>
+   				<p>{$date.title}</p>
+   			</div>
+   			<div class="itemRight">
+   				{$date.content}
+   			</div>
+   		</div>
+
+   	</div>
+
+<!--侧边栏-->
+{include file="public/cebian"}
+
+<!-- 引入jQuery 2.0+ -->
+<script src="__JS__/jquery-3.2.1.min.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="__JS__/ydui.js"></script>
+<script>
+//	遮罩的高度
+	var $height=document.body.scrollHeight 
+	$('.zhezhao').height($height)
+   $('.fadein').click(function(){
+		event.stopPropagation();	
+		$('.zhezhao').show();
+   		$('.cebians').animate({left:'0px'});
+   })
+   $('body').click(function(){
+		$('.zhezhao').hide();
+   	
+   		$('.cebians').animate({left:'-3.5rem'});
+   })  
+// 阻止冒泡
+    $('.cebians').click(function(){
+		event.stopPropagation();	
+	}) 
+</script>
+</body>
+</html>

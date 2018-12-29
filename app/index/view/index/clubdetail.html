@@ -1,0 +1,84 @@
+{include file="public/head"}
+	<style type="text/css">
+		html{font-size: 50px;}
+		body{background: white;}
+		.main{padding: 10px;}
+		.mainTitle{font-size: 0.4rem;background: #de541e;color: white;padding: 0.1rem ;display: flex;align-items: center;}
+		.mainTitle img{width: 0.2rem;}
+		.mainTitle span{margin-left: 10px;}
+		.mainContent{margin-top: 5px;}
+		.mainContent p{font-size: 0.3rem;}
+		.mainContent img{width: 100%;display: block !important;margin: auto;margin-bottom: 5px;}
+		.zan{text-align: center;margin-top: 1rem;}
+		.zanItem{border-radius: 0.1rem;background: #c95123;color: white;display: inline-block;padding: 0.1rem;width: 2.2rem;text-align: center;}
+		.zanItem img{vertical-align: middle; width: 0.5rem;}
+		.about{margin: 10px;border: 1px solid #de541e;margin: 10px;}
+		.aboutTitle{font-size: 0.4rem;color: #DE541E;border-bottom: 1px solid #de541e;padding: 10px;}
+		ul li{font-size: 0.25rem;    border-bottom: 1px solid #e6e6e6;padding: 10px;display: flex;justify-content: space-between;}
+		ul li span:nth-child(1){width: 80%;}
+	</style>
+	<!--头部导航-->
+<header class="m-navbar">
+	<a href="#" class="navbar-item fadein">
+		<img src="__IMG__/img_03.png"/>
+	</a>
+	<div class="navbar-center">
+		企业俱乐部
+	</div>
+	<div class="navbar-item">
+		<a href="{:url('fatie')}">
+			发帖
+		</a>
+	</div>
+</header>
+    <div class="path">
+    	<p>当前位置：首页&#10132企业俱乐部&#10132详情</p>
+    </div>
+   	<div class="main">
+   		<div class="mainTitle">
+   			<img src="__IMG__/fdsf_03.png" onClick="javascript :history.back(-1);"/>
+   			<span>{$date.title}</span>
+   		</div>
+   		<div class="mainContent">
+   			<img src="{$date.thumb|geturl}"/>
+   			<p>{$date.content}</p>
+   		</div>
+{include file="public/zan"}
+   	</div>
+	<div class="about">
+		<p class="aboutTitle">相关</p>
+		<ul>
+			{volist name="xiang" id="vo"}
+			<a href="{:url('clubdetail')}?id={$vo.id}">
+				<li><span>· {$vo.title}</span><span>{$vo.create_time|date="Y-m-d",###}</span></li>
+			</a>
+			{/volist}
+		</ul>
+	</div>
+<!--侧边栏-->
+{include file="public/cebian"}
+
+<!-- 引入jQuery 2.0+ -->
+<script src="__JS__/jquery-3.2.1.min.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="__JS__/ydui.js"></script>
+<script>
+//	遮罩的高度
+	var $height=document.body.scrollHeight 
+	$('.zhezhao').height($height)
+   $('.fadein').click(function(){
+		event.stopPropagation();	
+		$('.zhezhao').show();
+   		$('.cebians').animate({left:'0px'});
+   })
+   $('body').click(function(){
+		$('.zhezhao').hide();
+   		$('.cebians').animate({left:'-3.5rem'});
+   })  
+// 阻止冒泡
+    $('.cebians').click(function(){
+		event.stopPropagation();	
+	}) 
+</script>
+</body>
+</html>

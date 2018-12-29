@@ -1,0 +1,57 @@
+{include file="public/head"}
+    <style>
+        /*卡片区域*/
+        body{background: white}
+        .m-tabbar{position: fixed;width: 100%;bottom: 0}
+        .item{overflow: hidden;}
+        .itemLeft{height: 2.5rem;width: 21%;float: left;background: url(__IMG__/shuxian.png)no-repeat;background-position-x: right}
+        .itemRitht{padding:0.1rem;float: left;margin:0 0.1rem;margin-right:0;padding-right:0;border: 1px solid #e6e6e6;padding-bottom: 0.1rem}
+        .box{padding: 0.1rem }
+        .iteminfo{overflow: hidden;margin-top: 0.1rem}
+        .iteminfo-left{float: left;width: 50%;}
+        .iteminfo-right{float: left;width: 50%}
+        .itemTitle{font-size: 0.3rem}
+        .iteminfo-right img{width: 100%}
+        .ui{padding-bottom: 0.1rem;overflow: hidden;box-sizing: border-box;height: 2.5rem;width: 79%}
+    </style>
+	<!--头部导航-->
+{include file="public/headlogo"}
+	<!--菜单导航-->
+    <div class="menu">
+        <a href="{:url('index')}">首页</a>
+        <a href="{:url('newslist')}">{$Acate.0.name}</a>
+        <a href="{:url('peoplelist')}">{$Acate.2.name}</a>
+        <a href="{:url('jiaoliulist')}" class="ding">{$Acate.1.name}</a>
+        <a class="next-ico" href="{:url('indexRight')}"><img src="__IMG__/jiantou_28.png"/></a>
+    </div>
+	<div class="path">
+    	<p>当前位置：首页&#10132行业交流</p>
+    </div>
+    <div class="box">
+		{volist name="jiaoliulist" id="vo"}
+    	<div class="item">
+            <div class="itemLeft">
+                <span>{$vo.create_time|date="Y-m-d",###}</span>
+            </div>
+            <div class="ui">
+                <a href="{:url('newdetail')}?id={$vo.id}">
+                    <div class="itemRitht">
+                        <p class="itemTitle">{$vo.title}</p>
+                        <div class="iteminfo">
+                            <div class="iteminfo-left">
+                                {$vo.description}
+                            </div>
+                            <div class="iteminfo-right">
+                                <img src="{$vo.thumb|geturl}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+		{/volist}
+		{$jiaoliulist->render()}
+    </div>
+   
+    <!-- 底部 -->
+{include file="public/foot"}

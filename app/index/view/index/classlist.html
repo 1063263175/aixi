@@ -1,0 +1,54 @@
+{include file="public/head"}
+	<style>
+		body{background: #fff}
+		.box{width: 6.3rem;height: 6.3rem;margin: auto;position: relative;}
+		.box img{width: 100%;height: 100%;}
+		.box a{display: inline-block;width: 1rem;height: 1rem;background: red;position: absolute; }
+		.spgl{left:2.65rem ;top: 0}
+		.csch{top: 0.6rem;left: 4.2rem;}
+		.spcl{top: 1.9rem;left: 5.2rem;}
+		.csyy{top: 3.5rem;left: 5.2rem;}
+		.wlps{left: 4.2rem;top: 4.7rem;}
+		.sygl{left: 2.65rem;top: 5.2rem;}
+		.sxgl{top: 4.7rem;left: 1rem;}
+		.cxfs{top: 3.5rem;left: 0.1rem;}
+		.kf{top: 1.9rem;left: 0.1rem;}
+		.rlzy{top:0.6rem;left:1rem}
+		.box2{text-align: center}
+		.box2 img{width: 6rem;height: 4rem;}
+	</style>
+	<!--头部导航-->
+{include file="public/headlogo"}
+	<!--菜单导航-->
+<div class="menu">
+	<a class="next-ico" href="{:url('index')}"><img src="__IMG__/zuo_03.png"/></a>
+	<a href="{:url('indexRight')}">{$Acate.11.name}</a><!--业态-->
+	<a href="{:url('foodlist')}">{$Acate.5.name}</a><!--食品安全-->
+	<a href="{:url('wuliu')}">物流信息港</a>
+	<a href="{:url('classlist')}" class="ding">{$Acate.4.name}</a><!--在线课堂-->
+</div>
+    <div class="path">
+    	<p>当前位置：首页&#10132在线课堂</p>
+	</div>
+	<div class="box">
+		<img src="__IMG__/ketang.png" alt="">
+
+		<a href="{:url('ytlist')}?cate={$cl.0.id}" class="spgl">{$cl.0.name}</a>
+
+		<a href="{:url('ytlist')}?cate={$cl.1.id}" class="csch">{$cl.1.name}</a>
+		<a href="{:url('ytlist')}?cate={$cl.2.id}" class="spcl">{$cl.2.name}</a>
+		<a href="{:url('ytlist')}?cate={$cl.3.id}" class="csyy">{$cl.3.name}</a>
+		<a href="{:url('ytlist')}?cate={$cl.4.id}" class="wlps">{$cl.4.name}</a>
+		<a href="{:url('ytlist')}?cate={$cl.5.id}" class="sygl">{$cl.5.name}</a>
+		<a href="{:url('ytlist')}?cate={$cl.6.id}" class="sxgl">{$cl.6.name}</a>
+		<a href="{:url('ytlist')}?cate={$cl.7.id}" class="cxfs">{$cl.7.name}</a>
+		<a href="{:url('ytlist')}?cate={$cl.8.id}" class="kf">{$cl.8.name}</a>
+		<a href="{:url('ytlist')}?cate={$cl.9.id}" class="rlzy">{$cl.9.name}</a>
+
+	</div>
+	<div class="box2">
+		<img src="__IMG__/ketang2_03.png" alt="">
+	</div>
+
+<!--侧边栏-->
+{include file="public/noNavFoot"}

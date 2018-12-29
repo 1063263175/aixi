@@ -1,0 +1,40 @@
+<div class="zan">
+    <div class="zanItem zanclick">
+        <img src="__IMG__/zan.png"/>
+        <span class="">( <span id="zan">{$zan}</span>个)</span>
+    </div>
+    <div class="zanItem cangclick">
+        <img src="__IMG__/xing.png"/>
+        <span class="">( <span id="cang">{$cang}</span>个)</span>
+        <span class="">(收藏)</span>
+    </div>
+</div>
+<script>
+    $(".zanclick").click(function () {
+        var aa = {$date.id};
+        $.post({
+            url:"{:url('zan')}",
+            dataType: "json",
+            data : "article_id=" +aa ,
+            async:false,
+            success:function(res) {
+                alert(res.msg);
+                $("#zan").html(res.count);
+            }
+        })
+    })
+    $(".cangclick").click(function () {
+        var aa = {$date.id};
+        $.post({
+            url:"{:url('cang')}",
+            dataType: "json",
+            data : "article_id=" +aa ,
+            async:false,
+            success:function(res) {
+                alert(res.msg);
+                $("#cang").html(res.count);
+            }
+        })
+    })
+
+</script>

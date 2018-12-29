@@ -1,0 +1,63 @@
+<!-- 底部 -->
+<div class="null"></div>
+
+<footer class="m-tabbar">
+    <a href="{:url('index')}" class="tabbar-item">
+        <span class="tabbar-icon">
+            <i class="iconfont icon-shouye"></i>
+        </span>
+        <span class="tabbar-txt">首页</span>
+    </a>
+    <a href="{:url('map')}" class="tabbar-item">
+        <span class="tabbar-icon">
+            <i class="iconfont icon-ditu"></i>
+        </span>
+        <span class="tabbar-txt">在线地图</span>
+    </a>
+    <a href="{:url('liuyan')}" class="tabbar-item">
+        <span class="tabbar-icon">
+            <i class="iconfont icon-icon-test1"></i>
+        </span>
+        <span class="tabbar-txt">在线留言</span>
+    </a>
+    <a href="#" class="tabbar-item">
+        <span class="tabbar-icon">
+             <i class="iconfont icon-dianhua"></i>
+        </span>
+        <span class="tabbar-txt">电话</span>
+    </a>
+    <a href="{:url('kefu')}" class="tabbar-item">
+        <span class="tabbar-icon">
+            <i class="iconfont icon-kefu"></i>
+        </span>
+        <span class="tabbar-txt">在线客服</span>
+    </a>
+</footer>
+
+<!--侧边栏-->
+{include file="public/cebian"}
+<!-- 引入jQuery 2.0+ -->
+<script src="__JS__/jquery-3.2.1.min.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="__JS__/ydui.js"></script>
+<script>
+    //	遮罩的高度
+    var $height=document.body.scrollHeight
+    $('.zhezhao').height($height)
+    $('.fadein').click(function(){
+        event.stopPropagation();
+        $('.zhezhao').show();
+        $('.cebians').animate({left:'0px'});
+    })
+    $('body').click(function(){
+        $('.zhezhao').hide();
+
+        $('.cebians').animate({left:'-3.5rem'});
+    })
+    // 阻止冒泡
+    $('.cebians').click(function(){
+        event.stopPropagation();
+    })
+</script>
+</body>
+</html>

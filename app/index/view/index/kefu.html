@@ -1,0 +1,38 @@
+{include file="public/head"}
+	<style>
+		/*卡片区域*/
+		body{background: white}
+		.navbar-center{font-size:0.4rem;color: #c14f25 }
+		.box{padding: 0.3rem}
+		.kefu{display: flex;align-items: center}
+		.kefuLeft i{font-size:0.6rem;}
+		.kefu{margin-bottom: 0.5rem }
+		.kefuRight{margin-left: 0.2rem}
+	</style>
+	<!--头部导航-->
+	<header class="m-navbar">
+	    <a href="#" class="navbar-item fadein">
+			<img src="__IMG__/img_03.png"/>
+	    </a>
+	    <div class="navbar-center">
+	       在线客服
+	    </div>
+	    <div class="navbar-item">
+	        <a href="#">
+				<img src="__IMG__/img_05.png"/>
+	        </a>	       
+	    </div>
+	</header>
+    <div class="box">
+		{volist name="list" id="vo"}
+        <div class="kefu">
+            <div class="kefuLeft"><i class="iconfont icon-kefu"></i></div>
+            <div class="kefuRight">{$vo.nickname}</div>
+        </div>
+		{/volist}
+
+    </div>
+   
+
+<!--侧边栏-->
+{include file="public/noNavFoot"}

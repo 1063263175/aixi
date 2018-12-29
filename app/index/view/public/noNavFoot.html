@@ -1,0 +1,66 @@
+<!--没有底部导航-->
+<!--侧边栏-->
+{include file="public/cebian"}
+<!-- 引入jQuery 2.0+ -->
+<script src="__JS__/jquery-3.2.1.min.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="__JS__/ydui.js"></script>
+<script>
+    //	遮罩的高度
+    var $height=document.body.scrollHeight;
+    $('.zhezhao').height($height);
+    $('.fadein').click(function(){
+        event.stopPropagation();
+        $('.zhezhao').show();
+        $('.cebians').animate({left:'0px'});
+    })
+    $('body').click(function(){
+        $('.zhezhao').hide();
+
+        $('.cebians').animate({left:'-3.5rem'});
+    })
+    // 阻止冒泡
+    $('.cebians').click(function(){
+        event.stopPropagation();
+    })
+    //表单校验
+    //	手机号验证
+    function validatePhone(phoneValue) {
+        var reg = /^[1][0-9]{10}$/;
+        return reg.test(phoneValue);
+    };
+    //	验证码
+    function codetext(codevalue){
+        if(codevalue==''){
+            return false;
+        }else if(isNaN(codevalue)){
+            return false;
+        }else{
+            return true
+        }
+    };
+    //	密码
+    function password(pass){
+        if(pass==''||pass.length<6){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    $('form').submit(function(e){
+        e.preventDefault();
+        var phone=validatePhone($('#phone').val());
+        if(!phone){$('.shoujihao').show();}
+        var code=codetext($('#code').val());
+        if(!code){$('.yanzhengma').show();}
+        var mimavalue=password($('#password').val());
+        if(!mimavalue){$('.onepass').show();}
+        var password2=$('#password').val()==$('#password2').val();
+        if(!password2){$('.twopass').show();}
+        if(phone&&code&&mimavalue&&password2){
+        //执行ajax
+        }
+    })
+</script>
+</body>
+</html>

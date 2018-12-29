@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- 引入YDUI样式 -->
+    <link rel="stylesheet" href="../css/ydui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../font/iconfont.css"/>
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="../js/ydui.flexible.js"></script>
+    <style type="text/css">
+    	body{
+    		background: white;
+    	}
+    	.box{
+    		padding: 10px;
+    	}
+    	.boxContent img{
+    		width: 3.43rem;
+    		height: 2.87rem;
+    	}
+    	.boxContent{
+    		margin: auto;
+    		display: flex;
+    		justify-content: center;
+    		align-items: center;
+    		width: 80%;
+    		height: 5rem;
+    		box-shadow:0px 0px 5px #ccc;
+    		
+    	}
+    	.box1{
+    		display: flex;
+    		justify-content: space-between;
+    	}
+    	.box1 .boxContent{
+    		width: 48%;
+    	}
+    	.zhuce{
+    		width: 1.34rem !important;
+    		height: 1.74rem !important;
+    	}
+    	.xiugai{
+    		width: 1.95rem !important;
+    		height: 1.74rem !important;	
+    	}
+    	
+    </style>
+</head>
+<body>
+	<!--遮罩-->
+	<div class="zhezhao">
+		
+	</div>
+	<!--头部导航-->
+	<header class="m-navbar">
+	    <a href="#" class="navbar-item fadein">
+			<img src="../img/img_03.png"/>
+	    </a>
+	    <div class="navbar-center">
+	       <img class="logo" src="../img/logo.png"/>
+	    </div>
+	    <div class="navbar-item">
+	        <a href="#">
+				<img src="../img/img_05.png"/>
+	        </a>	       
+	    </div>
+	</header>
+	<div class="box">
+		<div class="boxContent">
+			<img src="../img/denglu1.png"/>
+		</div>
+	</div>
+	<div class="box box1">
+		<div class="boxContent">
+			<img class="zhuce" src="../img/denglu2.png"/>
+		</div>
+		<div class="boxContent">
+			<img class="xiugai" src="../img/denglu3.png"/>
+		</div>
+	</div>
+   
+<!--侧边栏-->
+<div class="cebians">
+	
+	<div class="cebian">
+		<div class="cebian-left">
+			<img src="../img/icon1.png"/>
+		</div>
+		<span>首页</span>
+	</div>
+	<div class="cebian">
+		<div class="cebian-left">
+			<img src="../img/icon2.png"/>
+		</div>
+		<span>业态</span>
+	</div>
+	<div class="cebian">
+		<div class="cebian-left">
+		<img src="../img/icon3.png"/>
+			
+		</div>
+		<span>新闻咨询</span>
+	</div>
+	<div class="cebian">
+		<div class="cebian-left">
+			<img src="../img/icon4.png"/>
+		</div>
+		<span>传奇人生</span>
+	</div>
+	<div class="cebian">
+		<div class="cebian-left">
+		<img src="../img/icon5.png"/>
+		</div>
+		<span>行业交流</span>
+	</div>
+	<div class="cebian">
+		<div class="cebian-left">
+			<img src="../img/icon6.png"/>
+		</div>
+		<span>物流信息</span>
+	</div>
+	<div class="cebian">
+		<div class="cebian-left">
+			<img src="../img/icon7.png"/>
+		</div>
+		<span>在线课堂</span>
+	</div>
+	<div class="cebian">
+		<div class="cebian-left">
+			<img src="../img/icon8.png"/>
+		</div>
+		<span>食品安全</span>
+	</div>
+	<div class="cebian">
+		<button>退出登录</button>
+	</div>
+</div>
+
+<!-- 引入jQuery 2.0+ -->
+<script src="../js/jquery-3.2.1.min.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="../js/ydui.js"></script>
+<script>
+//	遮罩的高度
+	var $height=document.body.scrollHeight 
+	$('.zhezhao').height($height)
+   $('.fadein').click(function(){
+		event.stopPropagation();	
+		$('.zhezhao').show();
+   		$('.cebians').animate({left:'0px'});
+   })
+   $('body').click(function(){
+		$('.zhezhao').hide();
+   	
+   		$('.cebians').animate({left:'-3.5rem'});
+   })  
+// 阻止冒泡
+    $('.cebians').click(function(){
+		event.stopPropagation();	
+	}) 
+</script>
+</body>
+</html>

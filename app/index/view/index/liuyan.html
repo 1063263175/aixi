@@ -1,0 +1,84 @@
+{include file="public/head"}
+	<style type="text/css">
+		body{background: white;}
+		.main{padding: 0.2rem}
+		.content label{font-size:0.3rem;color:#de541e ;width: 1.5rem;display: inline-block;}
+		.content input{border: none}
+		textarea{vertical-align: top;border: none}
+		.bottom{position: fixed;bottom: 0;}
+		.bottom img{width: 100%;}
+	</style>
+	<!--头部导航-->
+<form action="" method="post">
+<header class="m-navbar">
+    <a href="#" class="navbar-item fadein">
+        <img src="__IMG__/img_03.png"/>
+    </a>
+    <div class="navbar-center">
+        在线留言
+    </div>
+    <div class="navbar-item">
+        <button style="border: 0px" type="submit">
+            发布
+        </button>
+    </div>
+</header>
+    <div class="main">
+        <div class="content">
+            <label for="">姓名:</label>
+            <input type="text" name="name">
+        </div>
+        <div class="content">
+            <label for="">邮箱:</label>
+            <input type="text" name="email">
+        </div>
+        <div class="content">
+            <label for="">联系方式:</label>
+            <input type="text" name="tel">
+        </div>
+        <div class="content">
+            <label for="">我的留言:</label>
+            <textarea name="content" id="" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+    <div class="bottom">
+        <img src="__IMG__/img44_02.png" alt="">
+    </div>
+</form>
+		
+
+<!--侧边栏-->
+{include file="public/cebian"}
+
+<!-- 引入jQuery 2.0+ -->
+<script src="__JS__/jquery-3.2.1.min.js"></script>
+
+<!-- 引入YDUI脚本 -->
+<script src="__JS__/ydui.js"></script>
+<script>
+//	遮罩的高度
+	var $height=document.body.scrollHeight 
+	$('.zhezhao').height($height)
+   $('.fadein').click(function(){
+		event.stopPropagation();	
+		$('.zhezhao').show();
+   		$('.cebians').animate({left:'0px'});
+   })
+   $('body').click(function(){
+		$('.zhezhao').hide();
+   	
+   		$('.cebians').animate({left:'-3.5rem'});
+   })  
+// 阻止冒泡
+    $('.cebians').click(function(){
+		event.stopPropagation();	
+	}) 
+//	选项卡
+	$('.tabTitle p').click(function(){
+		var $index=$(this).index();
+		$(this).addClass('active').siblings().removeClass('active')
+		$('.tabContent-item').eq($index).show().siblings().hide()
+	})
+</script>
+</body>
+</html>

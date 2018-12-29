@@ -1,0 +1,136 @@
+{include file="public/head"}
+	<style type="text/css">
+		html{font-size: 50px;}
+		body{background: white;}
+		.main{padding: 10px;}
+		.mainTitle p{margin:auto;width:30%;border-radius:0.2rem ;background: #CCCCCC;text-align: center;line-height: 0.6rem;color: white;font-size: 0.35rem;}
+		.mainContent{padding: 0.1rem;}
+		.mainTitle input{border: none;text-align: center;width: 100%;}
+		.mainContent{    background: url(__IMG__/xinzhi2_05.png);    background-size: 100% 1rem;}
+		textarea{
+			width: 100%;
+			height: 5rem;
+			font-size: 0.3rem;
+			background-size: 100% 100%;
+			border: none;
+			background: rgba(0,0,0,0);
+			line-height: 1rem;
+			width: 100%;
+			height: 5rem;
+			font-size: 0.3rem;
+		}
+		.phone{
+			float: left;
+			padding: 0.2rem;
+			background: #e8e6e6;
+		}
+		.upload{overflow: hidden;}
+		.phone{margin-right: 0.2rem}
+		.phone img{width: 1.16rem;}
+		.layui-upload-file{
+			height: 49px;
+			width: 52px;
+			position: absolute;
+			margin-left: -60px;
+			opacity: 0;
+		}
+	</style>
+	<!--头部导航-->
+<form action="" method="post">
+	<header class="m-navbar">
+		<a href="#" class="navbar-item fadein">
+			<img src="__IMG__/img_03.png"/>
+		</a>
+		<div class="navbar-center">
+			<img class="logo" src="{$webconfig.logo|geturl}"/>
+		</div>
+		<div class="navbar-item">
+			<button type="submit" style="border: 0px">
+				发布
+			</button>
+		</div>
+	</header>
+	<div class="path">
+		<p>当前位置：首页&#10132企业俱乐部&#10132发帖</p>
+	</div>
+	<div class="main">
+		<div class="mainTitle">
+			<p><input type="" name="title" id="" value="" placeholder="标题"/></p>
+		</div>
+		<div class="mainContent">
+			<textarea rows="" name="content"></textarea>
+		</div>
+		<div id="upload-thumb"><!--图片地址回调--></div>
+		<div class="upload">
+			<div class="phone">
+				<img src="__IMG__/xiangji_09.png" alt="" id="thumb">
+			</div>
+			<!--<div class="phone">
+				<img src="__IMG__/xiangji_09.png" alt="" id="thumb">
+			</div>-->
+		</div>
+	</div>
+</form>
+
+
+<!--侧边栏-->
+{include file="public/cebian"}
+
+<!-- 引入jQuery 2.0+ -->
+<script src="__JS__/jquery-3.2.1.min.js"></script>
+<!-- 引入YDUI脚本 -->
+<script src="__JS__/ydui.js"></script>
+
+<script>
+    layui.use('upload', function(){
+        var upload = layui.upload;
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#thumb' //绑定元素
+            ,url: "{:url('index/index/upload')}" //上传接口
+            ,data:{use:'club_thumb'}
+            ,done: function(res){
+                //上传完毕回调
+                if(res.code == 2) {
+                    /*$('#demo1').attr('src',res.src);*/
+                    $('#upload-thumb').append('<input type="hidden" name="thumb" value="'+ res.id +'">');
+                    layer.open({
+						'title':'图片上传',
+						'content':'上传成功'
+					})
+                } else {
+                    layer.msg(res.msg);
+                }
+            }
+            ,error: function(){
+                //请求异常回调
+                //演示失败状态，并实现重传
+                /*var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function(){
+                    uploadInst.upload();
+                });*/
+            }
+        });
+    });
+</script>
+<script>
+//	遮罩的高度
+	var $height=document.body.scrollHeight 
+	$('.zhezhao').height($height)
+   $('.fadein').click(function(){
+		event.stopPropagation();	
+		$('.zhezhao').show();
+   		$('.cebians').animate({left:'0px'});
+   })
+   $('body').click(function(){
+		$('.zhezhao').hide();
+   		$('.cebians').animate({left:'-3.5rem'});
+   })  
+// 阻止冒泡
+    $('.cebians').click(function(){
+		event.stopPropagation();	
+	}) 
+</script>
+</body>
+</html>

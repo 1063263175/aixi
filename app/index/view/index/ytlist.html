@@ -1,0 +1,74 @@
+{include file="public/head"}
+	<style type="text/css">
+		body{background: white;}
+		h2{font-size: 0.35rem;}
+		.main{padding: 0.2rem;    box-shadow: 0px 0px 25px #ccc;}
+		.list{overflow: hidden;font-size:0.3rem;line-height: 0.5rem }
+		.list span:last-child{float: right}
+		.banner{padding: 0.2rem}
+		.banner img{width: 100%;}
+		.banner{position: fixed;width: 100%;bottom: 0}
+		.content{    border-bottom: 1px solid #e6e6e6;padding: 0.2rem 0;}
+	</style>
+	<!--头部导航-->
+{include file="public/headlogo"}
+    <div class="path">
+    	<p>当前位置：首页&#10132业态&#10132{$mm}</p>
+    </div>
+    <div class="main">
+		<!--5-->
+		<div class="content">
+			{volist name="list" id="vo"}
+			<a href="{:url('ytdetail',['id'=>$vo.id])}">
+				<p class="list">
+					<span>[{$vo.tag}]</span>
+					<span>·</span>
+					<span>{$vo.title}</span>
+					<span>{$vo.create_time|date="Y",###}</span>
+				</p>
+			</a>
+			{/volist}
+		</div>
+		{$list->render()}
+	</div>
+	<!-- 底部 -->
+	<div class="null"></div>
+	<div class="banner ">
+		<img src="__IMG__/dashichang_03.png" alt="">
+	</div>
+
+<!--侧边栏-->
+{include file="public/cebian"}
+
+<!-- 引入jQuery 2.0+ -->
+<script src="../js/jquery-3.2.1.min.js"></script>
+
+<!-- 引入YDUI脚本 -->
+<script src="../js/ydui.js"></script>
+<script>
+//	遮罩的高度
+	var $height=document.body.scrollHeight 
+	$('.zhezhao').height($height)
+   $('.fadein').click(function(){
+		event.stopPropagation();	
+		$('.zhezhao').show();
+   		$('.cebians').animate({left:'0px'});
+   })
+   $('body').click(function(){
+		$('.zhezhao').hide();
+   	
+   		$('.cebians').animate({left:'-3.5rem'});
+   })  
+// 阻止冒泡
+    $('.cebians').click(function(){
+		event.stopPropagation();	
+	}) 
+//	选项卡
+	$('.tabTitle p').click(function(){
+		var $index=$(this).index();
+		$(this).addClass('active').siblings().removeClass('active')
+		$('.tabContent-item').eq($index).show().siblings().hide()
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{include file="public/head"}
+	<style>
+		/*卡片区域*/
+		.cards{
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			padding: 0.5rem 10px;
+		}
+		.card{
+			align-items: center;
+			width: 49%;
+			height: 2.5rem;
+			box-shadow:0px 0px 20px #333333;
+			border-radius:0.2rem ;
+			display: inline-flex;
+			margin-bottom: 0.2rem;
+		}
+		.card img{
+			width: 1.5rem;
+			height: 1.5rem;
+			margin-left: 10px;
+		}
+		.info{
+			font-size: 0.26rem;
+			margin-left: 10px;
+		}
+		.m-tabbar{position: fixed;width: 100%;bottom: 0}
+	</style>
+	<!--头部导航-->
+{include file="public/headlogo"}
+	<!--菜单导航-->
+	<div class="menu">
+		<a href="{:url('index')}">首页</a>
+		<a href="{:url('newslist')}">{$Acate.0.name}</a>
+		<a href="{:url('peoplelist')}" class="ding">{$Acate.2.name}</a>
+		<a href="{:url('jiaoliulist')}">{$Acate.1.name}</a>
+		<a class="next-ico" href="{:url('indexRight')}"><img src="__IMG__/jiantou_28.png"/></a>
+	</div>
+	<div class="path">
+    	<p>当前位置：首页&#10132传奇人生</p>
+    </div>
+    <div class="box">
+    	<div class="cards">
+			{volist name="peoplelist" id="vo"}
+				<div class="card" onclick="window.location.href='{:url('ren')}?id={$vo.id}'">
+					<img src="{$vo.thumb|geturl}"/>
+					<div class="info">
+						<p>{$vo.title}</p>
+						<p>{$vo.description}</p>
+					</div>
+				</div>
+			{/volist}
+    	</div>
+    </div>
+
+	<!-- 底部 -->
+{include file="public/foot"}

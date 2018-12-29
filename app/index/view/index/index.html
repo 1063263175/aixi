@@ -1,0 +1,160 @@
+{include file="public/head"}
+	<!--头部logo-->
+{include file="public/headlogo"}
+	<!--头部菜单导航-->
+<div class="menu">
+	<a href="{:url('index')}" class="ding">首页</a>
+	<a href="{:url('newslist')}">{$Acate.0.name}</a>
+	<a href="{:url('peoplelist')}">{$Acate.2.name}</a>
+	<a href="{:url('jiaoliulist')}">{$Acate.1.name}</a>
+	<a class="next-ico" href="{:url('indexRight')}"><img src="__IMG__/jiantou_28.png"/></a>
+</div>
+	<!--轮播图导航-->
+<div class="m-slider" data-ydui-slider="{autoplay: 3000}"><!-- 参数在这里 -->
+	<div class="slider-wrapper">
+		{volist name="banner" id="vo"}
+		<div class="slider-item">
+			<a href="#">
+				<img src="{$vo.img|geturl}">
+			</a>
+		</div>
+		{/volist}
+
+	</div>
+	<div class="slider-pagination"></div><!-- 分页标识 -->
+</div>
+    <!--搜索-->
+	{include file="public/sou"}
+    <div class="box">
+		<!--新闻资讯-->
+    	<div class="box-top">
+    		<div class="box-top-title">
+    			<img src="__IMG__/heng2.png"/>
+    			<span class="">
+    				{$Acate.0.name}
+    			</span>
+    			<img src="__IMG__/heng1.png"/>
+    		</div>
+			<!--更多按钮-->
+			<a href="{:url('newslist')}?cate_id={$Acate.0.id}">
+				<i class="iconfont icon-gengduo"></i>
+			</a>
+    	</div>
+    	<div class="boxLists">
+			{volist name="newstop" id="vo"}
+			<a href="{:url('newdetail')}?id={$vo.id}">
+				<div class="boxList-item">
+					<div class="boxList-item-left">
+						<span>{$vo.title}</span>
+						<p class="redian">热点</p>
+					</div>
+					<img src="{$vo.thumb|geturl}"/>
+				</div>
+			</a>
+    		{/volist}
+    	</div>
+    </div>
+    <div class="box">
+		<!--行业交流-->
+    	<div class="box-top">
+    		<div class="box-top-title">
+    			<img src="__IMG__/heng2.png"/>
+    			<span class="">
+    				{$Acate.1.name}
+    			</span>
+    			<img src="__IMG__/heng1.png"/>
+    		</div>
+			<a href="{:url('jiaoliulist')}">
+				<i class="iconfont icon-gengduo"></i>
+			</a>
+    	</div>
+    	<div class="boxLists">
+			{volist name="jiaoliu" id="vo"}
+			<a href="{:url('newdetail')}?id={$vo.id}">
+				<div class="boxList-item">
+					<div class="boxList-item-left">
+						<i>■</i>
+						<span>{$vo.title}</span>
+					</div>
+					<img src="{$vo.thumb|geturl}"/>
+				</div>
+			</a>
+			{/volist}
+
+    	</div>
+    </div>
+    <div class="box">
+		<!--传奇人生-->
+    	<div class="box-top">
+    		<div class="box-top-title">
+    			<img src="__IMG__/heng2.png"/>
+    			<span class="">
+    				{$Acate.2.name}
+    			</span>
+    			<img src="__IMG__/heng1.png"/>
+    		</div>
+			<a href="{:url('peoplelist')}">
+				<i class="iconfont icon-gengduo"></i>
+			</a>
+    	</div>
+    	<div class="cards">
+			{volist name="people" id="vo"}
+    		<div class="card"  onclick="window.location.href='{:url('ren')}?id={$vo.id}'">
+    			<img src="{$vo.thumb|geturl}"/>
+    			<div class="info">
+    				<p>{$vo.title}</p>
+    				<p>{$vo.description}</p>
+    			</div>
+    		</div>
+			{/volist}
+    	</div>
+    </div>
+    <div class="box">
+		<!--企业俱乐部-->
+    	<div class="box-top">
+    		<div class="box-top-title">
+    			<img src="__IMG__/heng2.png"/>
+    			<span class="">
+    				{$Acate.3.name}
+    			</span>
+    			<img src="__IMG__/heng1.png"/>
+    		</div>
+			<a href="{:url('clublist')}">
+				<i class="iconfont icon-gengduo"></i>
+			</a>
+    	</div>
+    	<div class="companys">
+			{volist name="club" id="vo"}
+    		<div class="company" onclick="window.location.href='{:url('clubdetail')}?id={$vo.id}'">
+    			<div class="companyLeft">
+    				<img src="{$vo.thumb|geturl}"/>
+    			</div>
+    			<div class="companyMiddle">
+    				<p>{$vo.title}</p>
+    				<p>{$vo.description}</p>
+    			</div>
+    			<div class="companyRight">
+    				<img src="__IMG__/jiantou_28.png"/>
+    			</div>
+    		</div>
+    		{/volist}
+    	</div>
+    </div>
+    <div class="banner1">
+    	<img src="{$adv.img|geturl}"/>
+    </div>
+    <div class="hezis">
+		{volist name="pei" id="vo"}
+    	<div class="hezi">
+    		<div class="hezi-top">
+    			<span class="">{$vo.title}</span>
+    			<a href="{:url('peixun')}?id={$vo.id}">培训报名</a>
+    		</div>
+    		<div class="hezi-content">
+    			{$vo.description}
+    		</div>
+    	</div>
+    	{/volist}
+	</div>
+	<!-- 底部 侧边栏-->
+{include file="public/foot"}
